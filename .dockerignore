@@ -1,4 +1,3 @@
 .git
 .gitattributes
-nginx.conf
 Dockerfile
