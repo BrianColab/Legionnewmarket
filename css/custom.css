@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 h1 { font-weight: 900 !important; letter-spacing: -.02em !important; }
 h2 { font-weight: 700 !important; }
-h3 { font-weight: 600 !important; }
+h3 { font-weight: 500 !important; }
 
 a             { color: var(--red) !important; transition: color .18s; }
 a:hover       { color: var(--red-hover) !important; }
@@ -81,21 +81,26 @@ img           { max-width: 100%; height: auto; }
 .sp-megamenu-parent {
   display: flex !important; list-style: none !important;
   margin: 0 !important; padding: 0 !important;
-  align-items: center !important; gap: 2px !important;
+  align-items: center !important; gap: 4px !important;
 }
 .sp-megamenu-parent .sp-menu-item > a,
 .sp-megamenu-parent .sp-menu-item > span {
   font-family: 'Inter', sans-serif !important;
-  font-size: .875rem !important; font-weight: 600 !important;
-  color: var(--ink) !important; text-decoration: none !important;
-  padding: 7px 13px !important; border-radius: 6px !important;
-  display: block !important; transition: background .18s, color .18s !important;
+  font-size: .875rem !important; font-weight: 500 !important;
+  color: #444444 !important; text-decoration: none !important;
+  padding: 7px 14px !important; border-radius: 6px !important;
+  background: transparent !important;
+  display: block !important; transition: color .18s !important;
 }
-.sp-megamenu-parent .sp-menu-item > a:hover,
+.sp-megamenu-parent .sp-menu-item > a:hover {
+  color: var(--ink) !important;
+  background: transparent !important;
+}
 .sp-megamenu-parent .sp-menu-item.active > a,
 .sp-megamenu-parent .sp-menu-item.current-item > a {
-  background: var(--red-light) !important;
   color: var(--red) !important;
+  font-weight: 600 !important;
+  background: transparent !important;
 }
 .burger-icon span { background: var(--ink) !important; }
 
@@ -255,9 +260,9 @@ img           { max-width: 100%; height: auto; }
 }
 .articleBody h3, [itemprop="articleBody"] h3 {
   font-family: 'Inter', sans-serif !important;
-  font-size: clamp(1rem,2vw,1.15rem) !important;
-  font-weight: 600 !important; line-height: 1.55 !important;
-  color: var(--ink) !important; margin-bottom: 12px !important;
+  font-size: 1.05rem !important;
+  font-weight: 400 !important; line-height: 1.72 !important;
+  color: var(--body-text) !important; margin-bottom: 1rem !important;
 }
 .articleBody p, [itemprop="articleBody"] p, .article-details p {
   font-family: 'Inter', sans-serif !important;
