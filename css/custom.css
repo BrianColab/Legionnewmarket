@@ -74,7 +74,8 @@ img           { max-width: 100% !important; }
   position: relative !important;
   z-index: 999 !important;
 }
-#sp-header .container { padding-top: 10px !important; padding-bottom: 10px !important; }
+#sp-header .container { padding-top: 14px !important; padding-bottom: 14px !important; }
+#sp-header .row { align-items: center !important; }
 /* Let template JS set placeholder height so sticky header doesn't cover hero */
 
 /* ── Logo ───────────────────────────────────────────────────── */
