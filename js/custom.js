@@ -6,6 +6,15 @@
     var section = document.getElementById('sp-section-1');
     if (!section) return;
 
+    // Capture original banner image before we wipe innerHTML
+    var origImg = section.querySelector('img');
+    if (origImg) {
+      var imgSrc = origImg.getAttribute('src');
+      if (imgSrc) {
+        section.style.setProperty('--hero-bg-image', 'url("' + imgSrc + '")');
+      }
+    }
+
     var isHome = document.body.className.indexOf('view-featured') !== -1;
     var content;
 
