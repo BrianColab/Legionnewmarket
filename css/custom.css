@@ -449,16 +449,91 @@ img           { max-width: 100% !important; }
   transform: translateY(-1px) !important;
   color: #fff !important;
 }
-.olh-social-maps {
+/* Maps toggle button (replaces static .olh-social-maps anchor) */
+.olh-maps-toggle {
+  width: 100% !important;
   background: var(--bg-alt) !important;
   border: 1px solid var(--border) !important;
   color: var(--ink) !important;
+  cursor: pointer !important;
+  text-align: left !important;
 }
-.olh-social-maps:hover {
+.olh-maps-toggle:hover {
   background: #fff !important;
   box-shadow: var(--shadow-hover) !important;
   transform: translateY(-1px) !important;
   color: var(--ink) !important;
+}
+.olh-maps-toggle.active {
+  background: #fff !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow-card) !important;
+  transform: none !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+.olh-maps-chevron {
+  margin-left: auto !important;
+  flex-shrink: 0 !important;
+  color: var(--body-text) !important;
+  transition: transform .3s ease !important;
+}
+.olh-maps-toggle.active .olh-maps-chevron { transform: rotate(180deg) !important; }
+
+/* Slide panel */
+.olh-maps-widget { width: 100% !important; }
+.olh-maps-panel {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height .4s ease !important;
+}
+.olh-maps-panel.open { max-height: 420px !important; }
+
+/* Embedded map frame */
+.olh-maps-frame-wrap {
+  width: 100% !important;
+  height: 190px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--border) !important;
+  border-top: none !important;
+}
+.olh-maps-frame-wrap iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  display: block !important;
+}
+
+/* Action buttons */
+.olh-maps-actions {
+  display: flex !important;
+  gap: 8px !important;
+  padding: 10px 0 2px !important;
+}
+.olh-maps-action-btn {
+  display: flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  flex: 1 !important;
+  justify-content: center !important;
+  padding: 9px 10px !important;
+  border-radius: 8px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: .8rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: opacity .18s, transform .15s !important;
+  text-align: center !important;
+}
+.olh-maps-action-btn:hover { opacity: .88 !important; transform: translateY(-1px) !important; }
+.olh-maps-google {
+  background: var(--bg-alt) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--ink) !important;
+}
+.olh-maps-apple {
+  background: #1c1c1e !important;
+  color: #fff !important;
 }
 .olh-social-btn svg { flex-shrink: 0 !important; }
 .olh-social-text {
