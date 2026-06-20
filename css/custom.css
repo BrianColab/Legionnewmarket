@@ -108,12 +108,16 @@ img           { max-width: 100%; height: auto; }
 #sp-section-1 {
   background-color: #0f0f0f !important;
   background-image:
-    radial-gradient(ellipse at 50% 80%, rgba(207,31,42,.22) 0%, transparent 60%),
-    linear-gradient(135deg, rgba(15,15,15,.88) 0%, rgba(26,5,7,.84) 60%, rgba(42,8,11,.82) 100%),
+    linear-gradient(to right,
+      rgba(10,10,10,0.97) 0%,
+      rgba(10,10,10,0.93) 35%,
+      rgba(15,5,5,0.62) 58%,
+      rgba(20,5,7,0.10) 100%
+    ),
     var(--hero-bg-image) !important;
-  background-size: cover, cover, cover !important;
-  background-position: center, center, center !important;
-  background-repeat: no-repeat, no-repeat, no-repeat !important;
+  background-size: cover, cover !important;
+  background-position: center, center right !important;
+  background-repeat: no-repeat, no-repeat !important;
   position: relative !important;
   overflow: hidden !important;
   min-height: 520px !important;
@@ -121,17 +125,37 @@ img           { max-width: 100%; height: auto; }
   padding: 0 !important;
   display: flex !important;
   align-items: center !important;
+}
+
+/* Homepage: left-aligned text, image bleeds from the right */
+#sp-section-1.olh-hero-home {
+  justify-content: flex-start !important;
+}
+#sp-section-1.olh-hero-home .olh-hero-content {
+  text-align: left !important;
+  padding: 90px 24px 90px 7vw !important;
+  max-width: 580px !important;
+  margin: 0 !important;
+}
+
+/* Subpages: centred, image is a uniform dark texture */
+#sp-section-1.olh-hero-sub {
   justify-content: center !important;
+  background-image:
+    linear-gradient(135deg, rgba(15,15,15,.9) 0%, rgba(26,5,7,.87) 60%, rgba(42,8,11,.85) 100%),
+    var(--hero-bg-image) !important;
+}
+#sp-section-1.olh-hero-sub .olh-hero-content {
+  text-align: center !important;
+  padding: 80px 24px !important;
+  max-width: 860px !important;
+  margin: 0 auto !important;
 }
 
 /* Hero text injected by custom.js */
 .olh-hero-content {
   position: relative;
   z-index: 2;
-  text-align: center;
-  padding: 100px 24px;
-  max-width: 860px;
-  margin: 0 auto;
   width: 100%;
 }
 .olh-hero-content .olh-eyebrow {
@@ -146,7 +170,7 @@ img           { max-width: 100%; height: auto; }
 }
 .olh-h1 {
   font-family: 'Inter', sans-serif !important;
-  font-size: clamp(2.8rem,7vw,5.5rem) !important;
+  font-size: clamp(2.8rem,6vw,5rem) !important;
   font-weight: 900 !important;
   letter-spacing: -.04em !important;
   line-height: 1.0 !important;
@@ -163,7 +187,7 @@ img           { max-width: 100%; height: auto; }
   color: rgba(255,255,255,.6) !important;
   margin: 0 0 40px !important;
   font-weight: 400 !important;
-  letter-spacing: .05em !important;
+  letter-spacing: .02em !important;
 }
 .olh-btn-hero {
   display: inline-block !important;
@@ -184,8 +208,7 @@ img           { max-width: 100%; height: auto; }
   color: #fff !important;
 }
 
-/* Subpage hero variant */
-.olh-hero-subpage { padding: 80px 24px !important; }
+/* Subpage page title */
 .olh-page-title {
   font-family: 'Inter', sans-serif !important;
   font-size: clamp(2.2rem,5.5vw,4rem) !important;
@@ -197,9 +220,10 @@ img           { max-width: 100%; height: auto; }
 }
 
 @media (max-width: 767px) {
-  #sp-section-1 { min-height: 380px !important; }
-  .olh-hero-content { padding: 70px 20px !important; }
-  .olh-hero-subpage { padding: 60px 20px !important; }
+  #sp-section-1 { min-height: 360px !important; }
+  #sp-section-1.olh-hero-home .olh-hero-content { padding: 70px 20px !important; }
+  #sp-section-1.olh-hero-sub .olh-hero-content  { padding: 60px 20px !important; }
+  .olh-h1 { font-size: clamp(2.2rem,10vw,3.2rem) !important; }
 }
 
 /* ── Main body ──────────────────────────────────────────────── */

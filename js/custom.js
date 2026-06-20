@@ -19,6 +19,7 @@
     var content;
 
     if (isHome) {
+      section.classList.add('olh-hero-home');
       content =
         '<div class="olh-hero-content">' +
         '  <p class="olh-eyebrow">Newmarket, Ontario &bull; Est. 1946</p>' +
@@ -27,6 +28,7 @@
         '  <a href="index.php/about-br-426/" class="olh-btn-hero">Learn About Us</a>' +
         '</div>';
     } else {
+      section.classList.add('olh-hero-sub');
       var h1El = document.querySelector('.article-header h1');
       var title = h1El ? h1El.textContent.trim() : '';
       if (!title) {
