@@ -16,8 +16,8 @@
   --body-text:        #444444;
   --hero-grad:        linear-gradient(135deg,#0f0f0f 0%,#1a0507 60%,#2a080b 100%);
   --hero-glow:        radial-gradient(ellipse at 50% 80%,rgba(207,31,42,.22) 0%,transparent 60%);
-  --shadow-card:      0 4px 24px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.04);
-  --shadow-hover:     0 8px 32px rgba(0,0,0,.12);
+  --shadow-card:      0 1px 4px rgba(0,0,0,0.06);
+  --shadow-hover:     0 4px 24px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.06);
   --r-card:           14px;
   --r-btn:            8px;
 }
@@ -285,7 +285,7 @@ img           { max-width: 100%; height: auto; }
 
 /* ── Footer ─────────────────────────────────────────────────── */
 #sp-footer {
-  background: var(--ink) !important;
+  background: #111111 !important;
   padding: 38px 0 !important;
   border-top: none !important;
 }
