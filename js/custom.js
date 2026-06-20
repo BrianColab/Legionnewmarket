@@ -153,6 +153,74 @@
     }
   }
 
+  // -- Enhanced sidebar navigation --------------------------------------- //
+  function initSidebarNav() {
+    var nav = document.querySelector('#sp-right .menu');
+    if (!nav) return;
+
+    var ICONS = {
+      'veterans':
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+      'ladies-auxiliary':
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+      'membership':
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>' +
+        '<path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+      'bursary':
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>' +
+        '<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
+      'sports':
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+        '<circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>',
+      'hall-rentals':
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>' +
+        '<polyline points="9 22 9 12 15 12 15 22"/></svg>',
+      'photo-gallery':
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>' +
+        '<circle cx="12" cy="13" r="4"/></svg>'
+    };
+
+    var CHEVRON =
+      '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"' +
+      ' stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
+      '<polyline points="9 18 15 12 9 6"/></svg>';
+
+    // Add "Explore" header to the first nav module
+    var firstModule = nav.closest('.sp-module');
+    if (firstModule && !firstModule.querySelector('.olh-nav-header')) {
+      var hdr = document.createElement('div');
+      hdr.className = 'olh-nav-header';
+      hdr.innerHTML = '<span class="olh-nav-eyebrow">Explore</span>';
+      firstModule.insertBefore(hdr, firstModule.firstChild);
+    }
+
+    // Add icon + chevron to each link
+    var links = nav.querySelectorAll('li a');
+    links.forEach(function (link) {
+      var href = link.getAttribute('href') || '';
+      var iconHtml = '';
+      Object.keys(ICONS).forEach(function (k) {
+        if (href.indexOf(k) !== -1) { iconHtml = ICONS[k]; }
+      });
+
+      var iconSpan = document.createElement('span');
+      iconSpan.className = 'olh-nav-icon';
+      iconSpan.innerHTML = iconHtml || ICONS['veterans']; // fallback
+      link.insertBefore(iconSpan, link.firstChild);
+
+      var arrowSpan = document.createElement('span');
+      arrowSpan.className = 'olh-nav-arrow';
+      arrowSpan.innerHTML = CHEVRON;
+      link.appendChild(arrowSpan);
+    });
+  }
+
   // -- Scroll fade-in animations ----------------------------------------- //
   function initAnimations() {
     var targets = [].slice.call(document.querySelectorAll(
@@ -177,7 +245,7 @@
     targets.forEach(function (el) { io.observe(el); });
   }
 
-  function init() { initHero(); initSidebarLinks(); initAnimations(); }
+  function init() { initHero(); initSidebarLinks(); initSidebarNav(); initAnimations(); }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

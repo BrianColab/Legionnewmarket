@@ -586,6 +586,83 @@ img           { max-width: 100% !important; }
   transform: translateY(0) !important;
 }
 
+/* ── Enhanced sidebar navigation ────────────────────────────── */
+.olh-nav-header {
+  padding: 0 0 12px !important;
+  margin-bottom: 2px !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+.olh-nav-eyebrow {
+  font-family: 'Inter', sans-serif !important;
+  font-size: .66rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase !important;
+  color: var(--red) !important;
+}
+#sp-right .menu li {
+  border-bottom: none !important;
+}
+#sp-right .menu li a {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 8px 8px !important;
+  border-radius: 8px !important;
+  font-size: .875rem !important;
+  font-weight: 500 !important;
+  color: var(--body-text) !important;
+  text-decoration: none !important;
+  transition: background .15s, color .15s, padding-left .15s !important;
+}
+#sp-right .menu li a:hover {
+  color: var(--red) !important;
+  background: var(--red-light) !important;
+  padding-left: 10px !important;
+}
+#sp-right .menu li.current a,
+#sp-right .menu li.active a {
+  color: var(--red) !important;
+  background: var(--red-light) !important;
+  font-weight: 600 !important;
+  padding-left: 10px !important;
+}
+.olh-nav-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 7px !important;
+  background: var(--bg-alt) !important;
+  flex-shrink: 0 !important;
+  transition: background .15s, color .15s !important;
+  color: #888 !important;
+}
+.olh-nav-icon svg { display: block !important; }
+#sp-right .menu li a:hover .olh-nav-icon,
+#sp-right .menu li.current a .olh-nav-icon,
+#sp-right .menu li.active a .olh-nav-icon {
+  background: rgba(207,31,42,.10) !important;
+  color: var(--red) !important;
+}
+.olh-nav-arrow {
+  margin-left: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+  color: var(--red) !important;
+  opacity: 0 !important;
+  transform: translateX(-3px) !important;
+  transition: opacity .15s, transform .15s !important;
+}
+#sp-right .menu li a:hover .olh-nav-arrow,
+#sp-right .menu li.current a .olh-nav-arrow,
+#sp-right .menu li.active a .olh-nav-arrow {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 991px) {
   #sp-main-body { padding-top: 36px !important; padding-bottom: 52px !important; }
