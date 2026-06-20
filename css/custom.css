@@ -703,6 +703,12 @@ img           { max-width: 100% !important; }
   transform: translateX(0) !important;
 }
 
+/* ── Hamburger: desktop only hidden ─────────────────────────── */
+@media (min-width: 992px) {
+  #sp-menu .offcanvas-toggler-right,
+  #sp-menu .mega_offcanvas { display: none !important; }
+}
+
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 991px) {
   #sp-main-body { padding-top: 36px !important; padding-bottom: 52px !important; }
