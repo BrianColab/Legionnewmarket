@@ -127,17 +127,18 @@ img           { max-width: 100%; height: auto; }
   z-index: 0 !important;
 }
 
-/* Homepage gradient: solid black → dark red → barely-there red → image visible */
+/* Homepage gradient: solid black → deep maroon → wine red → photo visible */
 #sp-section-1.olh-hero-home .olh-hero-photo::after {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(to right,
-    #0a0a0a 0%,
-    #0a0a0a 25%,
-    rgba(18,3,4,0.90) 45%,
-    rgba(110,10,14,0.50) 65%,
-    rgba(207,31,42,0.18) 85%,
-    rgba(207,31,42,0.04) 100%
+    rgba(5,5,5,1.00)   0%,
+    rgba(5,5,5,1.00)   18%,
+    rgba(72,7,10,0.96) 36%,
+    rgba(130,12,16,0.72) 54%,
+    rgba(185,18,22,0.36) 72%,
+    rgba(207,31,42,0.10) 88%,
+    rgba(207,31,42,0.02) 100%
   );
 }
 
