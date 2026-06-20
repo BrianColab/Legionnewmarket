@@ -263,14 +263,14 @@ img           { max-width: 100% !important; }
 
 /* ── Article card (homepage) ─────────────────────────────────── */
 .blog-featured .article {
-  background: var(--bg) !important;
-  border: 1px solid var(--border) !important;
-  border-radius: var(--r-card) !important;
-  padding: 36px !important;
-  box-shadow: var(--shadow-card) !important;
-  transition: box-shadow .3s !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
 }
-.blog-featured .article:hover { box-shadow: var(--shadow-hover) !important; }
+.blog-featured .article:hover { box-shadow: none !important; }
+.featured-article-badge { display: none !important; }
 
 .featured-article-badge {
   background: var(--red) !important;
