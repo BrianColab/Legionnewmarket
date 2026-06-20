@@ -42,7 +42,7 @@ h3 { font-weight: 500 !important; }
 
 a             { color: var(--red) !important; transition: color .18s; }
 a:hover       { color: var(--red-hover) !important; }
-img           { max-width: 100%; height: auto; }
+img           { max-width: 100% !important; }
 
 /* ── Top bar ────────────────────────────────────────────────── */
 #sp-top-bar {
@@ -74,8 +74,18 @@ img           { max-width: 100%; height: auto; }
   position: relative !important;
   z-index: 999 !important;
 }
-#sp-header .container { padding-top: 12px !important; padding-bottom: 12px !important; }
+#sp-header .container { padding-top: 10px !important; padding-bottom: 10px !important; }
 .sticky-header-placeholder { height: 0 !important; }
+
+/* ── Logo ───────────────────────────────────────────────────── */
+.logo-image,
+.logo-image-phone {
+  height: 46px !important;
+  width: auto !important;
+  max-width: none !important;
+  display: block !important;
+}
+#sp-logo .logo a { display: flex !important; align-items: center !important; }
 
 /* ── Navigation ─────────────────────────────────────────────── */
 .sp-megamenu-parent {
