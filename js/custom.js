@@ -19,7 +19,7 @@
       textHtml =
         '<div class="olh-hero-content">' +
         '  <p class="olh-eyebrow">Newmarket, Ontario &bull; Est. 1946</p>' +
-        '  <h1 class="olh-h1">Branch 426<span>Royal Canadian Legion</span></h1>' +
+        '  <h1 class="olh-h1">Branch 426<span>Royal Canadian<br>Legion</span></h1>' +
         '  <p class="olh-tagline">Veterans &bull; Family &bull; Community</p>' +
         '  <a href="index.php/about-br-426/" class="olh-btn-hero">Learn About Us</a>' +
         '</div>';

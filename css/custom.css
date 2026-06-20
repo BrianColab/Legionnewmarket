@@ -110,7 +110,7 @@ img           { max-width: 100%; height: auto; }
   background-image: none !important;
   position: relative !important;
   overflow: hidden !important;
-  min-height: 520px !important;
+  min-height: 340px !important;
   height: auto !important;
   padding: 0 !important;
   display: flex !important;
@@ -155,8 +155,8 @@ img           { max-width: 100%; height: auto; }
 }
 #sp-section-1.olh-hero-home .olh-hero-content {
   text-align: left !important;
-  padding: 90px 24px 90px 7vw !important;
-  max-width: 580px !important;
+  padding: 52px 24px 52px 7vw !important;
+  max-width: 520px !important;
   margin: 0 !important;
 }
 
@@ -189,12 +189,12 @@ img           { max-width: 100%; height: auto; }
 }
 .olh-h1 {
   font-family: 'Inter', sans-serif !important;
-  font-size: clamp(2.8rem,6vw,5rem) !important;
+  font-size: clamp(1.7rem,2.8vw,2.6rem) !important;
   font-weight: 900 !important;
-  letter-spacing: -.04em !important;
-  line-height: 1.0 !important;
+  letter-spacing: -.03em !important;
+  line-height: 1.05 !important;
   color: #ffffff !important;
-  margin: 0 0 18px !important;
+  margin: 0 0 14px !important;
 }
 .olh-h1 span {
   color: #CF1F2A !important;
@@ -239,10 +239,10 @@ img           { max-width: 100%; height: auto; }
 }
 
 @media (max-width: 767px) {
-  #sp-section-1 { min-height: 360px !important; }
-  #sp-section-1.olh-hero-home .olh-hero-content { padding: 70px 20px !important; }
-  #sp-section-1.olh-hero-sub .olh-hero-content  { padding: 60px 20px !important; }
-  .olh-h1 { font-size: clamp(2.2rem,10vw,3.2rem) !important; }
+  #sp-section-1 { min-height: 260px !important; }
+  #sp-section-1.olh-hero-home .olh-hero-content { padding: 40px 20px !important; }
+  #sp-section-1.olh-hero-sub .olh-hero-content  { padding: 44px 20px !important; }
+  .olh-h1 { font-size: clamp(1.5rem,7vw,2rem) !important; }
 }
 
 /* ── Main body ──────────────────────────────────────────────── */
