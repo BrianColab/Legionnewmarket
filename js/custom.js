@@ -76,80 +76,98 @@
       }
     }
 
-    // Google Maps — interactive toggle with embedded map
-    var mapsAnchor = document.querySelector('#sp-right a[href*="google.com/maps"]');
-    if (mapsAnchor) {
-      var mapsBox = mapsAnchor.closest('.sp-module-content');
-      if (mapsBox) {
-        var ADDR_RAW  = '707 Srigley St, Newmarket, ON L3Y 1X4';
-        var ADDR_ENC  = encodeURIComponent(ADDR_RAW);
-        var EMBED_URL = 'https://maps.google.com/maps?q=' + ADDR_ENC + '&output=embed&z=15';
-        var GMAP_URL  = 'https://www.google.com/maps/search/?api=1&query=' + ADDR_ENC;
-        var AMAP_URL  = 'https://maps.apple.com/?q=' + ADDR_ENC;
+    // Google Maps — always inject on every page
+    if (!document.querySelector('.olh-maps-widget')) {
+      var ADDR_RAW  = '707 Srigley St, Newmarket, ON L3Y 1X4';
+      var ADDR_ENC  = encodeURIComponent(ADDR_RAW);
+      var EMBED_URL = 'https://maps.google.com/maps?q=' + ADDR_ENC + '&output=embed&z=15';
+      var GMAP_URL  = 'https://www.google.com/maps/search/?api=1&query=' + ADDR_ENC;
+      var AMAP_URL  = 'https://maps.apple.com/?q=' + ADDR_ENC;
 
-        var GMAPS_ICON =
-          '<svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">' +
-          '<path fill="#34A853" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>' +
-          '<path fill="#FBBC04" d="M5 9c0-3.87 3.13-7 7-7 1.6 0 3.07.54 4.24 1.43L12 9H5z"/>' +
-          '<path fill="#EA4335" d="M12 2c2.3 0 4.37.88 5.93 2.32L12 9l-2-3 2-4z" opacity=".9"/>' +
-          '<circle cx="12" cy="9" r="2.8" fill="white"/>' +
-          '<circle cx="12" cy="9" r="1.3" fill="#4285F4"/>' +
-          '</svg>';
+      var GMAPS_ICON =
+        '<svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">' +
+        '<path fill="#34A853" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>' +
+        '<path fill="#FBBC04" d="M5 9c0-3.87 3.13-7 7-7 1.6 0 3.07.54 4.24 1.43L12 9H5z"/>' +
+        '<path fill="#EA4335" d="M12 2c2.3 0 4.37.88 5.93 2.32L12 9l-2-3 2-4z" opacity=".9"/>' +
+        '<circle cx="12" cy="9" r="2.8" fill="white"/>' +
+        '<circle cx="12" cy="9" r="1.3" fill="#4285F4"/>' +
+        '</svg>';
 
-        var CHEVRON =
-          '<svg class="olh-maps-chevron" width="16" height="16" viewBox="0 0 24 24"' +
-          ' fill="none" stroke="currentColor" stroke-width="2.5"' +
-          ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-          '<polyline points="6 9 12 15 18 9"/></svg>';
+      var MAP_CHEVRON =
+        '<svg class="olh-maps-chevron" width="16" height="16" viewBox="0 0 24 24"' +
+        ' fill="none" stroke="currentColor" stroke-width="2.5"' +
+        ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<polyline points="6 9 12 15 18 9"/></svg>';
 
-        var GPIN =
-          '<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">' +
-          '<path fill="#EA4335" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>' +
-          '<circle cx="12" cy="9" r="2" fill="white"/></svg>';
+      var GPIN =
+        '<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">' +
+        '<path fill="#EA4335" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>' +
+        '<circle cx="12" cy="9" r="2" fill="white"/></svg>';
 
-        var APPLE_ICON =
-          '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
-          '<path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79' +
-          '-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39' +
-          'c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91' +
-          '.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04' +
-          '-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35' +
-          '-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>';
+      var APPLE_ICON =
+        '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
+        '<path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79' +
+        '-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39' +
+        'c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91' +
+        '.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04' +
+        '-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35' +
+        '-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>';
 
-        mapsBox.innerHTML =
-          '<div class="olh-maps-widget">' +
-          '<button type="button" class="olh-social-btn olh-maps-toggle" aria-expanded="false">' +
-          GMAPS_ICON +
-          '<span class="olh-social-text">' +
-          '<span class="olh-social-label">707 Srigley St, Newmarket</span>' +
-          '<span class="olh-social-name">Get Directions</span>' +
-          '</span>' + CHEVRON +
-          '</button>' +
-          '<div class="olh-maps-panel">' +
-          '<div class="olh-maps-frame-wrap">' +
-          '<iframe src="' + EMBED_URL + '" loading="lazy"' +
-          ' referrerpolicy="no-referrer-when-downgrade"' +
-          ' title="Branch 426 location"></iframe>' +
-          '</div>' +
-          '<div class="olh-maps-actions">' +
-          '<a href="' + GMAP_URL + '" target="_blank" rel="noopener" class="olh-maps-action-btn olh-maps-google">' +
-          GPIN + 'View on Google Maps</a>' +
-          '<a href="' + AMAP_URL + '" target="_blank" rel="noopener" class="olh-maps-action-btn olh-maps-apple">' +
-          APPLE_ICON + 'Apple Maps</a>' +
-          '</div>' +
-          '</div>' +
-          '</div>';
+      var mapsWidgetHtml =
+        '<div class="olh-maps-widget">' +
+        '<button type="button" class="olh-social-btn olh-maps-toggle" aria-expanded="false">' +
+        GMAPS_ICON +
+        '<span class="olh-social-text">' +
+        '<span class="olh-social-label">707 Srigley St, Newmarket</span>' +
+        '<span class="olh-social-name">Get Directions</span>' +
+        '</span>' + MAP_CHEVRON +
+        '</button>' +
+        '<div class="olh-maps-panel">' +
+        '<div class="olh-maps-frame-wrap">' +
+        '<iframe src="' + EMBED_URL + '" loading="lazy"' +
+        ' referrerpolicy="no-referrer-when-downgrade"' +
+        ' title="Branch 426 location"></iframe>' +
+        '</div>' +
+        '<div class="olh-maps-actions">' +
+        '<a href="' + GMAP_URL + '" target="_blank" rel="noopener" class="olh-maps-action-btn olh-maps-google">' +
+        GPIN + 'View on Google Maps</a>' +
+        '<a href="' + AMAP_URL + '" target="_blank" rel="noopener" class="olh-maps-action-btn olh-maps-apple">' +
+        APPLE_ICON + 'Apple Maps</a>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
 
-        var toggle = mapsBox.querySelector('.olh-maps-toggle');
-        var panel  = mapsBox.querySelector('.olh-maps-panel');
-        if (toggle && panel) {
-          toggle.addEventListener('click', function () {
-            var open = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!open));
-            panel.classList.toggle('open', !open);
-            toggle.classList.toggle('active', !open);
-          });
+      // Replace existing maps anchor module (homepage) or inject after Facebook
+      var mapsAnchor = document.querySelector('#sp-right a[href*="google.com/maps"]');
+      if (mapsAnchor) {
+        var mapsBox = mapsAnchor.closest('.sp-module-content');
+        if (mapsBox) { mapsBox.innerHTML = mapsWidgetHtml; }
+      } else {
+        var fbModule = document.querySelector('#sp-right a[href*="facebook.com"]');
+        fbModule = fbModule ? fbModule.closest('.sp-module') : null;
+        var spCol   = document.querySelector('#sp-right .sp-column');
+        var target  = fbModule || spCol;
+        if (target) {
+          var newMod = document.createElement('div');
+          newMod.className = 'sp-module';
+          newMod.innerHTML = '<div class="sp-module-content">' + mapsWidgetHtml + '</div>';
+          if (fbModule) {
+            fbModule.parentNode.insertBefore(newMod, fbModule.nextSibling);
+          } else {
+            spCol.appendChild(newMod);
+          }
         }
+      }
+
+      var toggle = document.querySelector('.olh-maps-toggle');
+      var panel  = document.querySelector('.olh-maps-panel');
+      if (toggle && panel) {
+        toggle.addEventListener('click', function () {
+          var open = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!open));
+          panel.classList.toggle('open', !open);
+          toggle.classList.toggle('active', !open);
+        });
       }
     }
   }
