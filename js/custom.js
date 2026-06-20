@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   'use strict';
 
   // -- Hero content injection -------------------------------------------- //
@@ -240,6 +240,34 @@
     });
   }
 
+  // -- Contact page slide-out form -------------------------------------- //
+  function initContactPage() {
+    var toggle = document.querySelector('.olh-contact-toggle');
+    var panel  = document.querySelector('.olh-contact-panel');
+    var form   = document.getElementById('olh-contact-form');
+    if (!toggle || !panel) return;
+
+    toggle.addEventListener('click', function () {
+      var isOpen = panel.classList.contains('open');
+      panel.classList.toggle('open', !isOpen);
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name    = (document.getElementById('cf-name')    || {}).value || '';
+      var email   = (document.getElementById('cf-email')   || {}).value || '';
+      var subject = (document.getElementById('cf-subject') || {}).value || 'Website Enquiry';
+      var message = (document.getElementById('cf-message') || {}).value || '';
+      var body    = 'From: ' + name + ' <' + email + '>\n\n' + message;
+      window.location.href =
+        'mailto:RCL426Newmarket@yahoo.ca' +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body='    + encodeURIComponent(body);
+    });
+  }
+
   // -- Scroll fade-in animations ----------------------------------------- //
   function initAnimations() {
     var targets = [].slice.call(document.querySelectorAll(
@@ -264,7 +292,7 @@
     targets.forEach(function (el) { io.observe(el); });
   }
 
-  function init() { initHero(); initSidebarLinks(); initSidebarNav(); initAnimations(); }
+  function init() { initHero(); initSidebarLinks(); initSidebarNav(); initContactPage(); initAnimations(); }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
