@@ -1,12 +1,43 @@
 (function () {
   'use strict';
 
+  // -- Hero content injection -------------------------------------------- //
+  function initHero() {
+    var section = document.getElementById('sp-section-1');
+    if (!section) return;
+
+    var isHome = document.body.className.indexOf('view-featured') !== -1;
+    var content;
+
+    if (isHome) {
+      content =
+        '<div class="olh-hero-content">' +
+        '  <p class="olh-eyebrow">Newmarket, Ontario &bull; Est. 1946</p>' +
+        '  <h1 class="olh-h1">Branch 426<span>Royal Canadian Legion</span></h1>' +
+        '  <p class="olh-tagline">Veterans &bull; Family &bull; Community</p>' +
+        '  <a href="index.php/about-br-426/" class="olh-btn-hero">Learn About Us</a>' +
+        '</div>';
+    } else {
+      var h1El = document.querySelector('.article-header h1');
+      var title = h1El ? h1El.textContent.trim() : '';
+      if (!title) {
+        var raw = document.title || '';
+        title = raw.split('-')[0].trim();
+      }
+      content =
+        '<div class="olh-hero-content olh-hero-subpage">' +
+        '  <p class="olh-eyebrow">Branch 426 Royal Canadian Legion</p>' +
+        '  <h2 class="olh-page-title">' + title + '</h2>' +
+        '</div>';
+    }
+
+    section.innerHTML = content;
+  }
+
+  // -- Scroll fade-in animations ----------------------------------------- //
   function initAnimations() {
     var targets = [].slice.call(document.querySelectorAll(
-      '.blog-featured .article, ' +
-      '#sp-right .sp-module, ' +
-      '.article-details, ' +
-      '.gallery-item'
+      '.blog-featured .article, #sp-right .sp-module, .article-details, .gallery-item'
     ));
 
     targets.forEach(function (el, i) {
@@ -31,9 +62,14 @@
     targets.forEach(function (el) { io.observe(el); });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAnimations);
-  } else {
+  function init() {
+    initHero();
     initAnimations();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 }());
