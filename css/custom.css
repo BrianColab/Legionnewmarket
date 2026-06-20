@@ -152,33 +152,32 @@ img           { max-width: 100% !important; }
   );
 }
 
-/* Subpage gradient: uniform dark so centred title reads cleanly */
+/* Subpage gradient: same left→right sweep as homepage */
 #sp-section-1.olh-hero-sub .olh-hero-photo::after {
   content: '';
   position: absolute; inset: 0;
-  background: rgba(12,12,12,0.86);
+  background: linear-gradient(to right,
+    rgba(5,5,5,1.00)    0%,
+    rgba(5,5,5,1.00)    20%,
+    rgba(72,7,10,0.94)  38%,
+    rgba(130,12,16,0.68) 55%,
+    rgba(185,18,22,0.30) 72%,
+    rgba(207,31,42,0.06) 90%,
+    rgba(207,31,42,0.00) 100%
+  );
 }
 
-/* Homepage: text left-aligned, in the dark zone */
-#sp-section-1.olh-hero-home {
+/* Both hero variants: left-aligned */
+#sp-section-1.olh-hero-home,
+#sp-section-1.olh-hero-sub {
   justify-content: flex-start !important;
 }
-#sp-section-1.olh-hero-home .olh-hero-content {
+#sp-section-1.olh-hero-home .olh-hero-content,
+#sp-section-1.olh-hero-sub .olh-hero-content {
   text-align: left !important;
   padding: 52px 24px 52px 7vw !important;
-  max-width: 520px !important;
+  max-width: 560px !important;
   margin: 0 !important;
-}
-
-/* Subpages: centred */
-#sp-section-1.olh-hero-sub {
-  justify-content: center !important;
-}
-#sp-section-1.olh-hero-sub .olh-hero-content {
-  text-align: center !important;
-  padding: 80px 24px !important;
-  max-width: 860px !important;
-  margin: 0 auto !important;
 }
 
 /* Hero text — must sit above the photo and gradient layers */
@@ -240,18 +239,18 @@ img           { max-width: 100% !important; }
 /* Subpage page title */
 .olh-page-title {
   font-family: 'Inter', sans-serif !important;
-  font-size: clamp(2.2rem,5.5vw,4rem) !important;
+  font-size: clamp(2rem,3.8vw,3.2rem) !important;
   font-weight: 900 !important;
   letter-spacing: -.04em !important;
-  line-height: 1.0 !important;
-  color: #CF1F2A !important;
-  margin: 12px 0 0 !important;
+  line-height: 1.05 !important;
+  color: #ffffff !important;
+  margin: 10px 0 0 !important;
 }
 
 @media (max-width: 767px) {
   #sp-section-1 { min-height: 260px !important; }
-  #sp-section-1.olh-hero-home .olh-hero-content { padding: 40px 20px !important; }
-  #sp-section-1.olh-hero-sub .olh-hero-content  { padding: 44px 20px !important; }
+  #sp-section-1.olh-hero-home .olh-hero-content,
+  #sp-section-1.olh-hero-sub .olh-hero-content  { padding: 40px 20px !important; }
   .olh-h1 { font-size: clamp(1.5rem,7vw,2rem) !important; }
 }
 
