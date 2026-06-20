@@ -30,8 +30,9 @@
       if (!title) { title = (document.title || '').split('-')[0].trim(); }
       textHtml =
         '<div class="olh-hero-content olh-hero-subpage">' +
-        '  <p class="olh-eyebrow">Branch 426 Royal Canadian Legion</p>' +
-        '  <h2 class="olh-page-title">' + title + '</h2>' +
+        '  <p class="olh-eyebrow">Newmarket, Ontario &bull; Est. 1946</p>' +
+        '  <h2 class="olh-h1">Branch 426<span>Royal Canadian Legion</span></h2>' +
+        '  <p class="olh-page-title">' + title + '</p>' +
         '</div>';
     }
 
