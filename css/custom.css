@@ -74,7 +74,7 @@ img           { max-width: 100% !important; }
   position: relative !important;
   z-index: 999 !important;
 }
-#sp-header .container { padding-top: 14px !important; padding-bottom: 14px !important; }
+#sp-header .container { padding-top: 18px !important; padding-bottom: 18px !important; }
 #sp-header .row { align-items: center !important; }
 /* Let template JS set placeholder height so sticky header doesn't cover hero */
 
@@ -89,10 +89,15 @@ img           { max-width: 100% !important; }
 #sp-logo .logo a { display: flex; align-items: center; }
 
 /* ── Navigation ─────────────────────────────────────────────── */
+nav.sp-megamenu-wrapper {
+  flex: 1 1 auto !important;
+  justify-content: center !important;
+}
 .sp-megamenu-parent {
   display: flex !important; list-style: none !important;
   margin: 0 !important; padding: 0 !important;
   align-items: center !important; gap: 4px !important;
+  justify-content: center !important;
 }
 .sp-megamenu-parent .sp-menu-item > a,
 .sp-megamenu-parent .sp-menu-item > span {
@@ -114,6 +119,24 @@ img           { max-width: 100% !important; }
   background: transparent !important;
 }
 .burger-icon span { background: var(--ink) !important; }
+/* Contact Us header button */
+.olh-header-contact-btn {
+  background: var(--red) !important;
+  color: #fff !important;
+  padding: 9px 22px !important;
+  border-radius: 7px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: .875rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  transition: background .18s !important;
+}
+.olh-header-contact-btn:hover {
+  background: #a8101a !important;
+  color: #fff !important;
+}
 
 /* ── Hero section ───────────────────────────────────────────── */
 #sp-section-1 {
@@ -749,8 +772,10 @@ img           { max-width: 100% !important; }
   transform: translateX(0) !important;
 }
 
-/* ── Hamburger: desktop only hidden ─────────────────────────── */
+/* ── Hamburger: hidden on desktop ───────────────────────────── */
 @media (min-width: 992px) {
+  #sp-menu [class*="offcanvas"],
+  #sp-menu .burger-icon,
   #sp-menu .offcanvas-toggler-right,
   #sp-menu .mega_offcanvas { display: none !important; }
 }
