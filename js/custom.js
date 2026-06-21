@@ -314,7 +314,30 @@
     if (col) col.appendChild(btn);
   }
 
-  function init() { initHeader(); initHero(); initSidebarLinks(); initSidebarNav(); initContactPage(); initAnimations(); }
+  // -- Footer: inject contact info ---------------------------------------- //
+  function initFooter() {
+    var col = document.querySelector('#sp-footer .sp-column');
+    if (!col) return;
+    col.innerHTML =
+      '<div class="olh-footer-grid">' +
+        '<div class="olh-footer-col">' +
+          '<span class="olh-footer-label">Branch 426</span>' +
+          '<p>Royal Canadian Legion</p>' +
+          '<p>707 Srigley Street<br>Newmarket, ON &nbsp;L3Y 1X4</p>' +
+        '</div>' +
+        '<div class="olh-footer-col">' +
+          '<span class="olh-footer-label">Phone</span>' +
+          '<p><a href="tel:9058955481">(905) 895-5481</a></p>' +
+        '</div>' +
+        '<div class="olh-footer-col">' +
+          '<span class="olh-footer-label">Email</span>' +
+          '<p><a href="index.php/contact-us/">Send us a message &rarr;</a></p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="olh-footer-copy">&copy; 2026 Br. 426 Royal Canadian Legion &mdash; Newmarket, Ontario</div>';
+  }
+
+  function init() { initHeader(); initFooter(); initHero(); initSidebarLinks(); initSidebarNav(); initContactPage(); initAnimations(); }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
