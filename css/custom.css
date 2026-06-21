@@ -155,7 +155,7 @@ img           { max-width: 100% !important; }
   position: absolute !important;
   inset: 0 !important;
   background-size: cover !important;
-  background-position: center right !important;
+  background-position: 30% center !important;
   background-repeat: no-repeat !important;
   z-index: 0 !important;
 }
