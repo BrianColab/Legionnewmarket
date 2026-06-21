@@ -137,7 +137,7 @@ img           { max-width: 100% !important; }
   position: absolute !important;
   inset: 0 !important;
   background-size: cover !important;
-  background-position: 8% center !important;
+  background-position: 0% center !important;
   background-repeat: no-repeat !important;
   z-index: 0 !important;
 }
