@@ -292,7 +292,24 @@
     targets.forEach(function (el) { io.observe(el); });
   }
 
-  function init() { initHero(); initSidebarLinks(); initSidebarNav(); initContactPage(); initAnimations(); }
+  // -- Header: center nav, extract Contact Us as red button ------------- //
+  function initHeader() {
+    var contactLi = document.querySelector('.sp-megamenu-parent .sp-menu-item:last-child');
+    if (!contactLi) return;
+    var contactLink = contactLi.querySelector('a');
+    if (!contactLink) return;
+
+    var btn = document.createElement('a');
+    btn.href = contactLink.href;
+    btn.className = 'olh-header-contact-btn';
+    btn.textContent = contactLink.textContent.trim();
+    contactLi.parentNode.removeChild(contactLi);
+
+    var menuCol = document.querySelector('#sp-menu .sp-column');
+    if (menuCol) menuCol.appendChild(btn);
+  }
+
+  function init() { initHeader(); initHero(); initSidebarLinks(); initSidebarNav(); initContactPage(); initAnimations(); }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
