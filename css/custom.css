@@ -470,11 +470,19 @@ img           { max-width: 100% !important; }
 .offcanvas-menu .close-offcanvas .burger-icon span { background: rgba(255,255,255,.8) !important; }
 
 /* ── Tighten social button modules ──────────────────────────── */
+#sp-right .sp-module:has(ul.menu) {
+  padding-bottom: 6px !important;
+  margin-bottom: 4px !important;
+}
 #sp-right .sp-module:has(.olh-social-btn),
 #sp-right .sp-module:has(.olh-maps-widget) {
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
-  margin-bottom: 4px !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  margin-bottom: 2px !important;
+}
+#sp-right .sp-module:has(.olh-social-btn) .sp-module-content,
+#sp-right .sp-module:has(.olh-maps-widget) .sp-module-content {
+  padding: 0 !important;
 }
 
 /* ── Sidebar social buttons (Facebook / Google Maps) ────────── */
