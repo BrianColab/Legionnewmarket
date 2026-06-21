@@ -1021,8 +1021,11 @@ img           { max-width: 100% !important; }
   list-style: none !important;
   padding: 0 !important;
   margin: 4px 0 0 !important;
+  display: flex !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
 }
-#sp-right #login-form .unstyled li { margin-bottom: 1px !important; }
+#sp-right #login-form .unstyled li { margin-bottom: 0 !important; }
 #sp-right #login-form .unstyled a {
   font-size: .75rem !important;
   color: #999 !important;
