@@ -71,11 +71,12 @@ img           { max-width: 100% !important; }
   border-bottom: 1px solid var(--border) !important;
   box-shadow: 0 2px 14px rgba(0,0,0,.055) !important;
   padding: 0 !important;
+  height: auto !important;
   position: relative !important;
   z-index: 999 !important;
 }
-#sp-header .container { padding-top: 18px !important; padding-bottom: 18px !important; }
-#sp-header .row { align-items: center !important; }
+#sp-header .container { padding-top: 12px !important; padding-bottom: 12px !important; }
+#sp-header .row { align-items: center !important; flex-wrap: nowrap !important; }
 /* Let template JS set placeholder height so sticky header doesn't cover hero */
 
 /* ── Logo ───────────────────────────────────────────────────── */
