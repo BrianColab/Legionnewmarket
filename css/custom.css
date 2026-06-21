@@ -471,13 +471,13 @@ img           { max-width: 100% !important; }
 
 /* ── Tighten social button modules ──────────────────────────── */
 #sp-right .sp-module:has(ul.menu) {
-  padding-bottom: 6px !important;
-  margin-bottom: 4px !important;
+  padding-bottom: 2px !important;
+  margin-bottom: 2px !important;
 }
 #sp-right .sp-module:has(.olh-social-btn),
 #sp-right .sp-module:has(.olh-maps-widget) {
-  padding-top: 4px !important;
-  padding-bottom: 4px !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
   margin-bottom: 2px !important;
 }
 #sp-right .sp-module:has(.olh-social-btn) .sp-module-content,
